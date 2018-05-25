@@ -24,5 +24,11 @@ namespace RealD_Helpdesk
         {
             InitializeComponent();
         }
+
+        //Email helpdesk Button.
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
