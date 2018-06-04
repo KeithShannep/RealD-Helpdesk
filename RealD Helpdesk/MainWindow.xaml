@@ -14,22 +14,44 @@
         </Button>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="45"/>
         <Label Content="Location:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="40,370,0,0" VerticalAlignment="Top" Width="45"/>
-        <Label Content="Category:" HorizontalAlignment="Left" Margin="90,370,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="45"/>
+        <Label Content="Category:" HorizontalAlignment="Left" Margin="125,172,0,0" VerticalAlignment="Top" Width="60"/>
         <Label Content="Issue:" HorizontalAlignment="Left" Margin="385,10,0,0" Width="60" VerticalAlignment="Top"/>
-        <Label Content="Resolution:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Resolution:" HorizontalAlignment="Left" Margin="80,229,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True"/>
         <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="271" Margin="270,41,0,0" VerticalAlignment="Top" Width="281" SpellCheck.IsEnabled="True">
             <FlowDocument/>
         </RichTextBox>
-        <Label Content="Priority:" HorizontalAlignment="Left" Margin="125,118,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label Content="Ticket number:" HorizontalAlignment="Left" Margin="145,286,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Priority:" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Ticket number:" HorizontalAlignment="Left" Margin="125,118,0,0" VerticalAlignment="Top" Width="90"/>
         <Label Content="Phone:" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Height="23" Margin="125,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True"/>
         <Label Content="CC:" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="30"/>
         <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True"/>
         <ComboBox HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="100" Height="23">
             <ComboBoxItem Content="Boulder"/>
+            <ComboBoxItem Content="Bevery Hills"/>
+            <ComboBoxItem Content="Beijing"/>
+            <ComboBoxItem Content="Hong Kong"/>
+            <ComboBoxItem Content="Korea"/>
+            <ComboBoxItem Content="London"/>
+            <ComboBoxItem Content="Moscow"/>
+            <ComboBoxItem Content="Oxford"/>
+            <ComboBoxItem Content="Shanghai"/>
+            <ComboBoxItem Content="Taiwan"/>
+            <ComboBoxItem Content="Tokyo"/>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="100" Height="23">
+            <ComboBoxItem Content="High"/>
+            <ComboBoxItem Content="Medium"/>
+            <ComboBoxItem Content="Low"/>
+        </ComboBox>
+        <TextBox x:Name="CCBox_Copy" HorizontalAlignment="Left" Height="23" Margin="125,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="100" Height="23">
+            <ComboBoxItem Content="New"/>
+            <ComboBoxItem Content="Opened"/>
+            <ComboBoxItem Content="Reopened"/>
+            <ComboBoxItem Content="Closed"/>
         </ComboBox>
 
     </Grid>
