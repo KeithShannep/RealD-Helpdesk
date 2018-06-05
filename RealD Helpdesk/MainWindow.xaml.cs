@@ -28,47 +28,103 @@ namespace RealD_Helpdesk
 
         //Email helpdesk Button.
         private void Button_Click(object sender, RoutedEventArgs e)
+       
         {
             try
             {
-                // Create the Outlook application.
-                Outlook.Application oApp = new Outlook.Application();
+                //Message to show blank fields
+                if (NameBox.Text == "")
+                {
+                    MessageBox.Show("Please enter Name.");
+                }
+                else
 
-                // Create a new mail item.
-                Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
+                if (LocationBox.Text == "")
+                {
+                    MessageBox.Show("Please select a location.");
+                }
+                else
 
-                //add the body of the email             
-                oMsg.HTMLBody =
-                    "<Strong> Customer: </Strong> " + this.NameBox.Text;
-               
-                //Subject line
-                oMsg.Subject = " ";
+                if (CategoryBox.Text == "")
+                {
+                    MessageBox.Show("Please choose a category.");
+                }
+                else
 
-                // Add a recipient.
-                Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
+                {
 
-                // Change the recipient in the next line if necessary.
-                Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("Kshannep@reald.com");
-                oRecip.Resolve();
 
-                // Send.
-                oMsg.Send();
 
-                // Clean up.
-                oRecip = null;
-                oRecips = null;
-                oMsg = null;
-                oApp = null;
+                    // Create the Outlook application.
+                    Outlook.Application oApp = new Outlook.Application();
 
-                // display submitted box
-                MessageBox.Show("Your ticket has been submitted!");
+                    // Create a new mail item.
+                    Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
 
-                Close();
+                    //add the body of the email             
+                    oMsg.HTMLBody =                        
+                        "<Strong> @Category= </Strong>" + this.CategoryBox.Text +
+                        "<br />" +
+                        "<Strong> @Priority= </Strong>" + this.PriorityBox.Text +
+                        "<br />" +
+                       "<Strong> @Status= </Strong>" + this.StatusBox.Text +
+                        "<br />" +
+                        "<br />" +                       
+                        "<Strong> Neme:" + this.NameBox.Text +
+                        "<br />" +
+                        "<Strong> Phone:" + this.PhoneBox.Text +
+                        "<br />" +
+                        "<Strong> Location: </Strong>" + this.LocationBox.Text;                     
+                    
 
+                    //"<Storng> @resolution= </Strong>" + 
+
+
+                    //Subject line Will check for ticket number               
+                    if (TicketBox.Text == "")
+                    {
+                        oMsg.Subject = " " + this.NameBox.Text + " -" + this.LocationBox.Text;
+                    }
+                    else
+                    {
+                        oMsg.Subject = " " + this.NameBox.Text + " -" + this.LocationBox.Text + " -" + "[TICK:" + this.TicketBox.Text + "]";
+                    }
+                    
+                    
+                    // Add a recipient.
+                    Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
+
+                    // Change the recipient in the next line if necessary.
+                    Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("Kshannep@reald.com");
+                    oRecip.Resolve();
+
+                    // Add another email in CC
+                    Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add(this.CCBox.Text);
+                                        
+
+                    // Send.
+                    oMsg.Send();
+
+                    // Clean up.
+                    oRecip = null;
+                    oRecips = null;
+                    oMsg = null;
+                    oApp = null;
+
+                    // display submitted box
+                    MessageBox.Show("Your ticket has been submitted!");
+
+                    Close();
+                }
             }//end of try block
             catch (Exception)
             {
             }
+        }
+
+        private void CCBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
