@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using System.IO;
 
 namespace RealD_Helpdesk
 {
@@ -62,20 +63,21 @@ namespace RealD_Helpdesk
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
 
                     //add the body of the email             
-                    oMsg.HTMLBody =                        
+                    oMsg.HTMLBody =
                         "<Strong> @Category= </Strong>" + this.CategoryBox.Text +
                         "<br />" +
                         "<Strong> @Priority= </Strong>" + this.PriorityBox.Text +
                         "<br />" +
                        "<Strong> @Status= </Strong>" + this.StatusBox.Text +
                         "<br />" +
-                        "<br />" +                       
+                        "<br />" +
                         "<Strong> Neme:" + this.NameBox.Text +
                         "<br />" +
                         "<Strong> Phone:" + this.PhoneBox.Text +
                         "<br />" +
-                        "<Strong> Location: </Strong>" + this.LocationBox.Text;                     
-                    
+                        "<Strong> Location: </Strong>" + this.LocationBox.Text;
+                       // "Issue:" + IssueBox.SelectAll.co
+                       
 
                     //"<Storng> @resolution= </Strong>" + 
 
