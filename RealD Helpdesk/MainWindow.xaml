@@ -7,12 +7,8 @@
         mc:Ignorable="d"
         Title="RealD Helpdesk" Height="520" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
     <Grid Background="#FFB9B1B1" Margin="0,0,0,-18">
-<<<<<<< HEAD
-        <Button Content="" HorizontalAlignment="Center" Margin="185,0,193,35" VerticalAlignment="Bottom" Width="185" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11" ClickMode="Press">
-=======
         <Button Content="" HorizontalAlignment="Center" Margin="155,0,138,35" VerticalAlignment="Bottom" Width="270" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11">
->>>>>>> Testing-attachment
-            <Button.Background>
+                <Button.Background>
                 <ImageBrush ImageSource="Pics/Submit-Button-Transparent-PNG.png"/>
             </Button.Background>
         </Button>
@@ -23,11 +19,7 @@
         <Label Content="Issue:" HorizontalAlignment="Left" Margin="365,15,0,0" Width="60" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Resolution:" HorizontalAlignment="Left" Margin="80,229,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True" TabIndex="1"/>
-<<<<<<< HEAD
-        <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="180" Margin="240,41,0,0" VerticalAlignment="Top" Width="311" SpellCheck.IsEnabled="True" TabIndex="9">
-=======
         <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="180" Margin="255,41,0,0" VerticalAlignment="Top" Width="296" SpellCheck.IsEnabled="True" TabIndex="9">
->>>>>>> Testing-attachment
             <FlowDocument/>
         </RichTextBox>
         <Label Content="Priority:" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
@@ -83,13 +75,9 @@
             <ComboBoxItem Content="VPN"/>
             <ComboBoxItem Content="Other"/>
         </ComboBox>
-<<<<<<< HEAD
-        <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="120,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" SpellCheck.IsEnabled="True" TabIndex="2"/>
-=======
         <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="6"/>
         <Label Content="Attachment:" HorizontalAlignment="Left" Margin="365,229,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="Attachment1" HorizontalAlignment="Left" Height="105" Margin="255,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
->>>>>>> Testing-attachment
 
     </Grid>
 </Window>
