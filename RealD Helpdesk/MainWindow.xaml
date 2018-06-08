@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealD_Helpdesk"
         mc:Ignorable="d"
-        Title="RealD Helpdesk" Height="480" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
+        Title="RealD Helpdesk" Height="520" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
     <Grid Background="#FFB9B1B1" Margin="0,0,0,-18">
-        <Button Content="" HorizontalAlignment="Center" Margin="185,0,193,35" VerticalAlignment="Bottom" Width="185" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11">
+        <Button Content="" HorizontalAlignment="Center" Margin="155,0,138,35" VerticalAlignment="Bottom" Width="270" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11">
             <Button.Background>
                 <ImageBrush ImageSource="Pics/Submit-Button-Transparent-PNG.png"/>
             </Button.Background>
@@ -19,7 +19,7 @@
         <Label Content="Issue:" HorizontalAlignment="Left" Margin="365,10,0,0" Width="60" VerticalAlignment="Top"/>
         <Label Content="Resolution:" HorizontalAlignment="Left" Margin="80,229,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True" TabIndex="1"/>
-        <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="304" Margin="240,41,0,0" VerticalAlignment="Top" Width="311" SpellCheck.IsEnabled="True" TabIndex="9">
+        <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="180" Margin="255,41,0,0" VerticalAlignment="Top" Width="296" SpellCheck.IsEnabled="True" TabIndex="9">
             <FlowDocument/>
         </RichTextBox>
         <Label Content="Priority:" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="60"/>
@@ -52,7 +52,7 @@
             <ComboBoxItem Content="Reopened"/>
             <ComboBoxItem Content="Closed"/>
         </ComboBox>
-        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="90" Margin="10,255,0,0" VerticalAlignment="Top" Width="225" SpellCheck.IsEnabled="True" TabIndex="10">
+        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="110" Margin="10,255,0,0" VerticalAlignment="Top" Width="225" SpellCheck.IsEnabled="True" TabIndex="10">
             <FlowDocument/>
         </RichTextBox>
         <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="125,198,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="8">
@@ -76,6 +76,8 @@
             <ComboBoxItem Content="Other"/>
         </ComboBox>
         <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="6"/>
+        <Label Content="Attachment:" HorizontalAlignment="Left" Margin="365,229,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="Attachment1" HorizontalAlignment="Left" Height="105" Margin="255,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
 
     </Grid>
 </Window>

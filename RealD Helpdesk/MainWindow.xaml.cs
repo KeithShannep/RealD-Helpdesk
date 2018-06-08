@@ -22,14 +22,10 @@ namespace RealD_Helpdesk
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-
+        
         //Email helpdesk Button.
         private void Button_Click(object sender, RoutedEventArgs e)
-       
+
         {
             try
             {
@@ -53,12 +49,15 @@ namespace RealD_Helpdesk
                 else
 
                 {
-                                        
+
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
 
                     // Create a new mail item.
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
+
+                    //Attachment
+
 
                     //add the body of the email             
                     oMsg.HTMLBody =
@@ -74,8 +73,9 @@ namespace RealD_Helpdesk
                         "<Strong> Phone:" + this.PhoneBox.Text +
                         "<br />" +
                         "<Strong> Location: </Strong>" + this.LocationBox.Text;
-                       // "Issue:" + IssueBox.SelectAll.co
-                       
+
+                    // "Issue:" + IssueBox.SelectAll.co
+
 
                     //"<Storng> @resolution= </Strong>" + 
 
@@ -89,8 +89,8 @@ namespace RealD_Helpdesk
                     {
                         oMsg.Subject = " " + this.NameBox.Text + " -" + this.LocationBox.Text + " -" + "[TICK:" + this.TicketBox.Text + "]";
                     }
-                    
-                    
+
+
                     // Add a recipient.
                     Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
 
@@ -100,7 +100,7 @@ namespace RealD_Helpdesk
 
                     // Add another email in CC
                     Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add(this.CCBox.Text);
-                                        
+
 
                     // Send.
                     oMsg.Send();
@@ -119,7 +119,8 @@ namespace RealD_Helpdesk
             }//end of try block
             catch (Exception)
             {
+
             }
-        }                
+        }
     }
 }
