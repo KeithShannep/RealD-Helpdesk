@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using System.IO;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
+using System.Net.Mail;
 
 namespace RealD_Helpdesk
 {
@@ -58,7 +60,10 @@ namespace RealD_Helpdesk
                     // Create a new mail item.
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
 
-                    //Attachment
+                    //Add Attachment
+                    {                                                              
+                        oMsg.Attachments.Add(new Attachment(Attachment1.Text));
+                    }
 
 
                     //add the body of the email             
@@ -76,11 +81,6 @@ namespace RealD_Helpdesk
                         "<br />" +
                         "<Strong> Location: </Strong>" + this.LocationBox.Text;
 
-                    // "Issue:" + IssueBox.SelectAll.co
-
-
-                    //"<Storng> @resolution= </Strong>" + 
-
 
                     //Subject line Will check for ticket number               
                     if (TicketBox.Text == "")
@@ -93,20 +93,20 @@ namespace RealD_Helpdesk
                     }
 
 
-                    // Add a recipient.
+                    // add the recipient
                     Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
-
-                    // Change the recipient in the next line if necessary.
+                    
                     Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("Kshannep@reald.com");
 
+                    // Add CC
                     if (this.CCBox.Text != "")
-                    {
-                        // Add another email in CC
+                    {                        
                         Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add(this.CCBox.Text);
                     }
 
-                    oMsg.Recipients.ResolveAll();
-
+                    //Resolves all recipients
+                    oMsg.Recipients.ResolveAll();                                     
+                    
                     // Send.
                     oMsg.Send();
 
@@ -125,6 +125,18 @@ namespace RealD_Helpdesk
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        //Attachment button
+        private void Attach_Click(object sender, EventArgs e)
+        {         
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            if (bool((dlg.ShowDialog())))
+            {
+                string FilePath = dlg.FileName.ToString();
+                Attachment1.Text = FilePath;
             }
         }
     }

@@ -8,7 +8,7 @@
         Title="RealD Helpdesk" Height="520" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
     <Grid Background="#FFB9B1B1" Margin="0,0,0,-18">
         <Button Content="" HorizontalAlignment="Center" Margin="155,0,138,35" VerticalAlignment="Bottom" Width="270" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11">
-                <Button.Background>
+            <Button.Background>
                 <ImageBrush ImageSource="Pics/Submit-Button-Transparent-PNG.png"/>
             </Button.Background>
         </Button>
@@ -77,7 +77,8 @@
         </ComboBox>
         <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="6"/>
         <Label Content="Attachment:" HorizontalAlignment="Left" Margin="365,229,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="Attachment1" HorizontalAlignment="Left" Height="105" Margin="255,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
+        <Button x:Name="Attach" Content="Button" HorizontalAlignment="Left" Margin="405,370,0,0" VerticalAlignment="Top" Width="75" Click="Attach_Click"/>
+        <TextBox x:Name="Attachment1" HorizontalAlignment="Left" Height="95" Margin="255,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" SpellCheck.IsEnabled="True"/>
 
     </Grid>
 </Window>
