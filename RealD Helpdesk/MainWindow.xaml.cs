@@ -13,8 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Outlook = Microsoft.Office.Interop.Outlook;
+<<<<<<< HEAD
 using System.Net.Mail;
 using System.IO;
+=======
+>>>>>>> parent of 5975411... save for the day
 
 namespace RealD_Helpdesk
 {
@@ -60,21 +63,28 @@ namespace RealD_Helpdesk
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
 
                     //add the body of the email             
-                    oMsg.HTMLBody =
+                    oMsg.HTMLBody =                        
                         "<Strong> @Category= </Strong>" + this.CategoryBox.Text +
                         "<br />" +
                         "<Strong> @Priority= </Strong>" + this.PriorityBox.Text +
                         "<br />" +
                        "<Strong> @Status= </Strong>" + this.StatusBox.Text +
                         "<br />" +
-                        "<br />" +
+                        "<br />" +                       
                         "<Strong> Neme:" + this.NameBox.Text +
                         "<br />" +
                         "<Strong> Phone:" + this.PhoneBox.Text +
                         "<br />" +
+<<<<<<< HEAD
                         "<Strong> Location: </Strong>" + this.LocationBox.Text;
                                     
                       //"<Storng> @resolution= </Strong>" + 
+=======
+                        "<Strong> Location: </Strong>" + this.LocationBox.Text;                     
+                    
+
+                    //"<Storng> @resolution= </Strong>" + 
+>>>>>>> parent of 5975411... save for the day
 
 
                     //Subject line Will check for ticket number               
