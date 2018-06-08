@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using System.Net.Mail;
 using System.IO;
 
 namespace RealD_Helpdesk
@@ -51,11 +52,7 @@ namespace RealD_Helpdesk
                     MessageBox.Show("Please choose a category.");
                 }
                 else
-
                 {
-
-
-
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
 
@@ -101,8 +98,6 @@ namespace RealD_Helpdesk
                     // Add another email in CC
                     Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add(this.CCBox.Text);
                      
-                    //Get attachment
-
                     // Send.
                     oMsg.Send();
 
@@ -120,12 +115,8 @@ namespace RealD_Helpdesk
             }//end of try block
             catch (Exception)
             {
-            }
-        }
-
-        private void CCBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            }      
+        
         }
     }
 }

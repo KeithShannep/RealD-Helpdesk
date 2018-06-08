@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RealD Helpdesk" Height="480" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
     <Grid Background="#FFB9B1B1" Margin="0,0,0,-18">
-        <Button Content="" HorizontalAlignment="Center" Margin="185,0,193,35" VerticalAlignment="Bottom" Width="185" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11">
+        <Button Content="" HorizontalAlignment="Center" Margin="185,0,193,35" VerticalAlignment="Bottom" Width="185" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11" ClickMode="Press">
             <Button.Background>
                 <ImageBrush ImageSource="Pics/Submit-Button-Transparent-PNG.png"/>
             </Button.Background>
@@ -75,9 +75,7 @@
             <ComboBoxItem Content="VPN"/>
             <ComboBoxItem Content="Other"/>
         </ComboBox>
-        <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="4" TextChanged="CCBox_TextChanged"/>
-        <Label Content="Attchment:" HorizontalAlignment="Left" Margin="335,229,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-        <ListBox HorizontalAlignment="Left" Height="90" Margin="240,255,0,0" VerticalAlignment="Top" Width="311" SelectionChanged="ListBox_SelectionChanged"/>
+        <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="120,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="2"/>
 
     </Grid>
 </Window>
