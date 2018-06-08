@@ -53,9 +53,7 @@ namespace RealD_Helpdesk
                 else
 
                 {
-
-
-
+                                        
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
 
@@ -122,11 +120,6 @@ namespace RealD_Helpdesk
             catch (Exception)
             {
             }
-        }
-
-        private void CCBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        }                
     }
 }
