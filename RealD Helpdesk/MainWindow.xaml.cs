@@ -76,10 +76,8 @@ namespace RealD_Helpdesk
                         "<Strong> Phone:" + this.PhoneBox.Text +
                         "<br />" +
                         "<Strong> Location: </Strong>" + this.LocationBox.Text;
-                       // "Issue:" + IssueBox.SelectAll.co
-                       
-
-                    //"<Storng> @resolution= </Strong>" + 
+                                    
+                      //"<Storng> @resolution= </Strong>" + 
 
 
                     //Subject line Will check for ticket number               
@@ -102,7 +100,8 @@ namespace RealD_Helpdesk
 
                     // Add another email in CC
                     Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add(this.CCBox.Text);
-                                        
+                     
+                    //Get attachment
 
                     // Send.
                     oMsg.Send();
