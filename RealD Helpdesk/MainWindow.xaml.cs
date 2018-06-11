@@ -87,11 +87,11 @@ namespace RealD_Helpdesk
                     //Subject line Will check for ticket number               
                     if (TicketBox.Text == "")
                     {
-                        oMsg.Subject = " " + this.NameBox.Text + " -" + this.LocationBox.Text;
+                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.PhoneBox.Text + "-" + this.PriorityBox.Text;
                     }
                     else
                     {
-                        oMsg.Subject = " " + this.NameBox.Text + " -" + this.LocationBox.Text + " -" + "[TICK:" + this.TicketBox.Text + "]";
+                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.PhoneBox.Text + "-" + this.PriorityBox.Text + "-" + "[TICK:" + this.TicketBox.Text + "]";
                     }
 
 
