@@ -133,7 +133,7 @@ namespace RealD_Helpdesk
         {         
             OpenFileDialog dlg = new OpenFileDialog();
 
-            if (bool((dlg.ShowDialog())))
+            if ((bool)dlg.ShowDialog())
             {
                 string FilePath = dlg.FileName.ToString();
                 Attachment1.Text = FilePath;
