@@ -69,19 +69,19 @@ namespace RealD_Helpdesk
 
                     //add the body of the email             
                     oMsg.HTMLBody =
-                        "<Strong> Category=" + this.CategoryBox.Text +
+                        "<Strong> @Category=</strong>" + this.CategoryBox.Text +
                         "<br />" +
-                        "<Strong> @Priority=" + this.PriorityBox.Text +
+                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
                         "<br />" +
-                       "<Strong> @Status= " + this.StatusBox.Text +
+                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
                         "<br />" +
                         "<br />" +
-                        "<Strong> Neme:" + this.NameBox.Text +
+                        "<Strong> Neme:</strong>" + this.NameBox.Text +
                         "<br />" +
-                        "<Strong> Phone:" + this.PhoneBox.Text +
+                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
                         "<br />" +
-                        "<Strong> Location:" + this.LocationBox.Text;
-
+                        "<Strong> Location:</strong>" + this.LocationBox.Text;
+                                        
 
 
                     //Subject line Will check for ticket number               
