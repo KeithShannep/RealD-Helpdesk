@@ -59,27 +59,29 @@ namespace RealD_Helpdesk
 
                     // Create a new mail item.
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
-
-                    //Add Attachment
-                    {                                                              
-                        oMsg.Attachments.Add(new Attachment(Attachment1.Text));
+                                     
+                    if (this.Attachment1.Text != "")
+                    {                       
+                        //attach the file
+                        Outlook.Attachment oAttach = oMsg.Attachments.Add(Attachment1.Text);                                                     
                     }
 
 
                     //add the body of the email             
                     oMsg.HTMLBody =
-                        "<Strong> @Category= </Strong>" + this.CategoryBox.Text +
+                        "<Strong> Category=" + this.CategoryBox.Text +
                         "<br />" +
-                        "<Strong> @Priority= </Strong>" + this.PriorityBox.Text +
+                        "<Strong> @Priority=" + this.PriorityBox.Text +
                         "<br />" +
-                       "<Strong> @Status= </Strong>" + this.StatusBox.Text +
+                       "<Strong> @Status= " + this.StatusBox.Text +
                         "<br />" +
                         "<br />" +
                         "<Strong> Neme:" + this.NameBox.Text +
                         "<br />" +
                         "<Strong> Phone:" + this.PhoneBox.Text +
                         "<br />" +
-                        "<Strong> Location: </Strong>" + this.LocationBox.Text;
+                        "<Strong> Location:" + this.LocationBox.Text;
+
 
 
                     //Subject line Will check for ticket number               
