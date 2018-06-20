@@ -5,29 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealD_Helpdesk"
         mc:Ignorable="d"
-        Title="RealD Helpdesk" Height="520" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
-    <Grid Background="#FFB9B1B1" Margin="0,0,0,-18">
-        <Button Content="" HorizontalAlignment="Center" Margin="155,0,138,35" VerticalAlignment="Bottom" Width="270" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="11">
+        Title="RealD Helpdesk" Height="745" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
+    <Grid Background="#FFB9B1B1" Margin="0,0,0,-3">
+        <Button Content="" HorizontalAlignment="Center" Margin="145,0,148,25" VerticalAlignment="Bottom" Width="270" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="14">
             <Button.Background>
                 <ImageBrush ImageSource="Pics/Submit-Button-Transparent-PNG.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="45" FontWeight="Bold"/>
-        <Label Content="Location:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
-        <Label Content="Category:" HorizontalAlignment="Left" Margin="125,172,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-        <Label Content="Issue:" HorizontalAlignment="Left" Margin="365,15,0,0" Width="60" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Resolution:" HorizontalAlignment="Left" Margin="80,229,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" SpellCheck.IsEnabled="True" TabIndex="1"/>
-        <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="180" Margin="255,41,0,0" VerticalAlignment="Top" Width="296" SpellCheck.IsEnabled="True" TabIndex="9">
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="45" FontWeight="Bold"/>
+        <Label Content="Location:" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="145,262,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Category:" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+        <Label Content="Issue:" HorizontalAlignment="Left" Margin="365,85,0,0" Width="60" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Resolution:" HorizontalAlignment="Left" Margin="365,334,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="10,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="1"/>
+        <RichTextBox x:Name="IssueBox" HorizontalAlignment="Left" Height="213" Margin="270,116,0,0" VerticalAlignment="Top" Width="283" SpellCheck.IsEnabled="True" TabIndex="12">
             <FlowDocument/>
         </RichTextBox>
-        <Label Content="Priority:" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
-        <Label Content="Ticket number:" HorizontalAlignment="Left" Margin="125,118,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold"/>
-        <Label Content="Phone:" HorizontalAlignment="Left" Margin="125,15,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-        <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Height="23" Margin="125,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="2"/>
-        <Label Content="CC:" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold"/>
-        <ComboBox x:Name="LocationBox" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="100" Height="23" TabIndex="3">
+        <Label Content="Priority:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Ticket number:" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold"/>
+        <Label Content="Phone:" HorizontalAlignment="Left" Margin="145,90,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+        <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Height="23" Margin="142,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="2"/>
+        <Label Content="Department:" HorizontalAlignment="Left" Margin="145,144,0,0" VerticalAlignment="Top" Width="90" FontWeight="Bold"/>
+        <ComboBox x:Name="LocationBox" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="3">
             <ComboBoxItem Content="Boulder"/>
             <ComboBoxItem Content="Bevery Hills"/>
             <ComboBoxItem Content="Beijing"/>
@@ -40,22 +40,21 @@
             <ComboBoxItem Content="Taiwan"/>
             <ComboBoxItem Content="Tokyo"/>
         </ComboBox>
-        <ComboBox x:Name="PriorityBox" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="100" Height="23" TabIndex="5">
-            <ComboBoxItem Content="High"/>
+        <ComboBox x:Name="PriorityBox" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="5">
             <ComboBoxItem Content="Medium"/>
             <ComboBoxItem Content="Low"/>
         </ComboBox>
-        <TextBox x:Name="TicketBox" HorizontalAlignment="Left" Height="23" Margin="125,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="6"/>
-        <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="100" Height="23" TabIndex="7">
+        <TextBox x:Name="TicketBox" HorizontalAlignment="Left" Height="23" Margin="10,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="7"/>
+        <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="142,288,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="8" SelectedIndex="0">
             <ComboBoxItem Content="New"/>
             <ComboBoxItem Content="Opened"/>
             <ComboBoxItem Content="Reopened"/>
             <ComboBoxItem Content="Closed"/>
         </ComboBox>
-        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="110" Margin="10,255,0,0" VerticalAlignment="Top" Width="225" SpellCheck.IsEnabled="True" TabIndex="10">
+        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="112" Margin="270,360,0,0" VerticalAlignment="Top" Width="281" SpellCheck.IsEnabled="True" TabIndex="13">
             <FlowDocument/>
         </RichTextBox>
-        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="125,198,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="8">
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="142,234,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="6">
             <ComboBoxItem Content="Account::AD Change"/>
             <ComboBoxItem Content="Account::Password reset"/>
             <ComboBoxItem Content="Autonomy"/>
@@ -75,10 +74,14 @@
             <ComboBoxItem Content="VPN"/>
             <ComboBoxItem Content="Other"/>
         </ComboBox>
-        <TextBox x:Name="CCBox" HorizontalAlignment="Left" Height="23" Margin="125,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="6"/>
-        <Label Content="Attachment:" HorizontalAlignment="Left" Margin="365,229,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Attach" Content="Button" HorizontalAlignment="Left" Margin="476,370,0,0" VerticalAlignment="Top" Width="75" Click="Attach_Click"/>
-        <TextBox x:Name="Attachment1" HorizontalAlignment="Left" Height="110" Margin="255,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" SpellCheck.IsEnabled="True"/>
+        <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="142,175,0,0" VerticalAlignment="Top" Width="110" Height="23" TabIndex="4">
+            <ComboBoxItem Content="AR Finance "/>
+            <ComboBoxItem Content="AP Finance"/>
+            <ComboBoxItem Content="Manufacturing"/>
+        </ComboBox>
+        <Image HorizontalAlignment="Left" Height="75" Margin="80,10,0,0" VerticalAlignment="Top" Width="385" Source="Pics/RealD_logo.png"/>
+        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="112" Margin="10,360,0,0" VerticalAlignment="Top" Width="242" Drop="AttachmentBox_Drop" AllowDrop="True"/>
+        <Label Content="Attachments:" HorizontalAlignment="Left" Margin="15,329,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold"/>
 
     </Grid>
 </Window>

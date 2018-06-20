@@ -28,8 +28,8 @@ namespace RealD_Helpdesk
         public MainWindow()
         {
             InitializeComponent();
-        }
-        
+        }       
+
         //Email helpdesk Button.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -53,17 +53,37 @@ namespace RealD_Helpdesk
                         MessageBox.Show("Please choose a category.");
                         return;
                     }
+                    if (DepartmentBox.Text == "")
+                    {
+                        MessageBox.Show("Please select a department");
+                        return;
+                    }
+
 
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
 
                     // Create a new mail item.
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
-                                     
-                    if (this.Attachment1.Text != "")
-                    {                       
+
+
+                    //Add Attachment
+                    //{
+                    //    oMsg.Attachments.Add(new Attachment(Attachment1.Text));
+
+                    //    if (this.Attachment1.Text != "")
+                    //    {
+                    //        //attach the file
+                    //        Outlook.Attachment oAttach = oMsg.Attachments.Add(Attachment1.Text);
+                    //    }
+
+
+
+                        //Add Attachment from Listbox
+                        if (AttachmentBox.Items != null)
+                    {
                         //attach the file
-                        Outlook.Attachment oAttach = oMsg.Attachments.Add(Attachment1.Text);                                                     
+                        Outlook.Attachment oAttach = oMsg.Attachments.Add(AttachmentBox.Items);
                     }
 
 
@@ -81,7 +101,7 @@ namespace RealD_Helpdesk
                         "<Strong> Phone:</strong>" + this.PhoneBox.Text +
                         "<br />" +
                         "<Strong> Location:</strong>" + this.LocationBox.Text;
-                                        
+
 
 
                     //Subject line Will check for ticket number               
@@ -97,18 +117,44 @@ namespace RealD_Helpdesk
 
                     // add the recipient
                     Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
-                    
+
                     Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("Kshannep@reald.com");
 
-                    // Add CC
-                    if (this.CCBox.Text != "")
-                    {                        
-                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add(this.CCBox.Text);
+                    
+                    //Dpartments
+                    // If AR Finance is selected in departments 
+                    if (this.DepartmentBox.SelectedIndex == 0)
+                    {
+                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("Dreges@reald.com" + ";" + "Ltorgeson@reald.com");
+                    }
+                    
+                    
+                    // Category
+                    // If MASS500 is selected in category 
+                    if (this.CategoryBox.SelectedIndex == 9)
+                    {
+                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("keithshannep@gmail.com");
+
+                        oMsg.HTMLBody =
+                        "<Strong> @Category=</strong>" + this.CategoryBox.Text +
+                        "<br />" +
+                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
+                        "<br />" +
+                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
+                        "<br />" +
+                        "<br />" +
+                        "<Strong> Neme:</strong>" + this.NameBox.Text +
+                        "<br />" +
+                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
+                        "<br />" +
+                        "<Strong> Location:</strong>" + this.LocationBox.Text +
+                        "<br />" +
+                        "<Strong> @Owner=Arkus </strong>";
                     }
 
                     //Resolves all recipients
-                    oMsg.Recipients.ResolveAll();                                     
-                    
+                    oMsg.Recipients.ResolveAll();
+
                     // Send.
                     oMsg.Send();
 
@@ -130,16 +176,21 @@ namespace RealD_Helpdesk
             }
         }
 
-        //Attachment button
-        private void Attach_Click(object sender, EventArgs e)
-        {         
-            OpenFileDialog dlg = new OpenFileDialog();
-
-            if ((bool)dlg.ShowDialog())
+        private void AttachmentBox_Drop(object sender, DragEventArgs e)
             {
-                string FilePath = dlg.FileName.ToString();
-                Attachment1.Text = FilePath;
+                string[] DropPath = e.Data.GetData(DataFormats.FileDrop, true) as string[];
+                foreach (string dropfilepath in DropPath)
+                {
+                    ListBoxItem listboxitem = new ListBoxItem();
+                    if (System.IO.Path.GetExtension(dropfilepath).Contains("."))
+                    {
+                        listboxitem.Content = System.IO.Path.GetFullPath(dropfilepath);
+                        listboxitem.ToolTip = DropPath;
+                        AttachmentBox.Items.Add(listboxitem);
+                    }
+                }
             }
         }
     }
 }
+
