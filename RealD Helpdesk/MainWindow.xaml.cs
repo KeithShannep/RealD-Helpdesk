@@ -25,10 +25,12 @@ namespace RealD_Helpdesk
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> myAttachmentPaths;
         public MainWindow()
         {
             InitializeComponent();
-        }       
+            myAttachmentPaths = new List<string>();
+        }
 
         //Email helpdesk Button.
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -79,11 +81,14 @@ namespace RealD_Helpdesk
 
 
 
-                        //Add Attachment from Listbox
-                        if (AttachmentBox.Items != null)
+                    //Add Attachment from Listbox
+                    if (AttachmentBox.Items != null)
                     {
-                        //attach the file
-                        Outlook.Attachment oAttach = oMsg.Attachments.Add(AttachmentBox.Items);
+                        foreach (string fileLoc in myAttachmentPaths)
+                        {
+                            //attach the file
+                            Outlook.Attachment oAttach = oMsg.Attachments.Add(fileLoc);
+                        }                       
                     }
 
 
@@ -120,15 +125,15 @@ namespace RealD_Helpdesk
 
                     Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("Kshannep@reald.com");
 
-                    
+
                     //Dpartments
                     // If AR Finance is selected in departments 
                     if (this.DepartmentBox.SelectedIndex == 0)
                     {
                         Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("Dreges@reald.com" + ";" + "Ltorgeson@reald.com");
                     }
-                    
-                    
+
+
                     // Category
                     // If MASS500 is selected in category 
                     if (this.CategoryBox.SelectedIndex == 9)
@@ -177,21 +182,24 @@ namespace RealD_Helpdesk
         }
 
         private void AttachmentBox_Drop(object sender, DragEventArgs e)
+        {
+            string[] DropPath = e.Data.GetData(DataFormats.FileDrop, true) as string[];
+            foreach (string dropfilepath in DropPath)
             {
-                string[] DropPath = e.Data.GetData(DataFormats.FileDrop, true) as string[];
-                foreach (string dropfilepath in DropPath)
+                ListBoxItem listboxitem = new ListBoxItem();
+                if (System.IO.Path.GetExtension(dropfilepath).Contains("."))
                 {
-                    ListBoxItem listboxitem = new ListBoxItem();
-                    if (System.IO.Path.GetExtension(dropfilepath).Contains("."))
-                    {
-                        listboxitem.Content = System.IO.Path.GetFullPath(dropfilepath);
-                        listboxitem.ToolTip = DropPath;
-                        AttachmentBox.Items.Add(listboxitem);
-                    }
+                    myAttachmentPaths.Add(System.IO.Path.GetFullPath(dropfilepath));
+                    listboxitem.Content = System.IO.Path.GetFileNameWithoutExtension(dropfilepath);
+                    listboxitem.ToolTip = DropPath;
+                    AttachmentBox.Items.Add(listboxitem);
                 }
             }
         }
     }
+}
+    
+
 
 
 
