@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealD_Helpdesk"
         mc:Ignorable="d"
-        Title="RealD Helpdesk" Height="745" Width="569" ResizeMode="NoResize" Icon="Pics/Help.ico">
+        Title="RealD Helpdesk" Height="745" Width="569" Icon="Pics/Help.ico">
     <Grid Background="#FFB9B1B1" Margin="0,0,0,-3">
         <Button Content="" HorizontalAlignment="Center" Margin="145,0,148,25" VerticalAlignment="Bottom" Width="270" Click="Button_Click" Height="65" ForceCursor="True" TabIndex="14">
             <Button.Background>

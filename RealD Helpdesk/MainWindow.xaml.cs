@@ -25,7 +25,9 @@ namespace RealD_Helpdesk
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Hold Attachment paths
         List<string> myAttachmentPaths;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -193,7 +195,7 @@ namespace RealD_Helpdesk
                     listboxitem.Content = System.IO.Path.GetFileNameWithoutExtension(dropfilepath);
                     listboxitem.ToolTip = DropPath;
                     AttachmentBox.Items.Add(listboxitem);
-                }
+                }               
             }
         }
     }
