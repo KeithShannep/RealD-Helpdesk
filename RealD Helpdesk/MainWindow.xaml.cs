@@ -16,7 +16,6 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
-using System.Net.Mail;
 
 namespace RealD_Helpdesk
 {
@@ -175,11 +174,11 @@ namespace RealD_Helpdesk
                         oMsg.HTMLBody =
                         "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
                         "<br />" +
-                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
+                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
                         "<br />" +
-                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
+                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
                         "<br />" +
-                        "<Strong> @Owner=</strong>Arkus" +
+                        "<p><font color=white>@</font><Strong>Owner=</strong>Unassigned" +
                         "<br />" +
                         "<br />" +
                         "<Strong> Neme:</strong>" + this.NameBox.Text +
@@ -199,13 +198,13 @@ namespace RealD_Helpdesk
                         Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("nkameron@reald.com");
 
                         oMsg.HTMLBody =
-                        "<Strong> @Category=</strong>" + this.CategoryBox.Text +
+                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
                         "<br />" +
-                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
+                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
                         "<br />" +
-                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
+                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
                         "<br />" +
-                        "<Strong> @Owner=</strong>Nick Kameron" +
+                        "<<p><font color=white>@</font><Strong>Owner=</strong>Nick Kameron" +
                         "<br />" +
                         "<br />" +
                         "<Strong> Neme:</strong>" + this.NameBox.Text +
