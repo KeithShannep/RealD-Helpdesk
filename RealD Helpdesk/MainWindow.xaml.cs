@@ -27,7 +27,7 @@ namespace RealD_Helpdesk
     {
         //Hold Attachment paths
         List<string> myAttachmentPaths;
-
+                
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +38,19 @@ namespace RealD_Helpdesk
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             {
+                //Get Text from Rich textbox
+                TextRange Issuetext = new TextRange(IssueBox.Document.ContentStart, IssueBox.Document.ContentEnd);
+
+                string allIssText = Issuetext.Text;
+
+                TextRange Restext = new TextRange(ResolutionBox.Document.ContentStart, ResolutionBox.Document.ContentEnd);
+
+                string allResText = Restext.Text;
+
+                TextRange Notestext = new TextRange(TicketNotesBox.Document.ContentStart, TicketNotesBox.Document.ContentEnd);
+
+                string allNotesText = Notestext.Text;
+
                 try
                 {
                     //Message to show blank fields
@@ -62,26 +75,17 @@ namespace RealD_Helpdesk
                         MessageBox.Show("Please select a department");
                         return;
                     }
-
+                    if (Issuetext.Text == "")
+                    {
+                        MessageBox.Show("Please describe the problem you are having.");
+                        return;                            
+                    } 
 
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
 
                     // Create a new mail item.
                     Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
-
-
-                    //Add Attachment
-                    //{
-                    //    oMsg.Attachments.Add(new Attachment(Attachment1.Text));
-
-                    //    if (this.Attachment1.Text != "")
-                    //    {
-                    //        //attach the file
-                    //        Outlook.Attachment oAttach = oMsg.Attachments.Add(Attachment1.Text);
-                    //    }
-
-
 
                     //Add Attachment from Listbox
                     if (AttachmentBox.Items != null)
@@ -93,61 +97,37 @@ namespace RealD_Helpdesk
                         }                       
                     }
 
-
-                    //add the body of the email             
-                    oMsg.HTMLBody =
-                        "<Strong> @Category=</strong>" + this.CategoryBox.Text +
-                        "<br />" +
-                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
-                        "<br />" +
-                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
-                        "<br />" +
-                        "<br />" +
-                        "<Strong> Neme:</strong>" + this.NameBox.Text +
-                        "<br />" +
-                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
-                        "<br />" +
-                        "<Strong> Location:</strong>" + this.LocationBox.Text;
-
-
-
                     //Subject line Will check for ticket number               
                     if (TicketBox.Text == "")
                     {
-                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.PhoneBox.Text + "-" + this.PriorityBox.Text;
+                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.CategoryBox.Text + "-" + this.PriorityBox.Text;
                     }
                     else
                     {
-                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.PhoneBox.Text + "-" + this.PriorityBox.Text + "-" + "[TICK:" + this.TicketBox.Text + "]";
+                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.CategoryBox.Text + "-" + this.PriorityBox.Text + "-" + "[TICK:" + this.TicketBox.Text + "]";
                     }
 
 
-                    // add the recipient
+                    //Add the recipient
                     Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
 
-                    Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("Kshannep@reald.com");
+                    Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("helpdesk@reald.com");
 
 
-                    //Dpartments
+                    //Dpartments CC
                     // If AR Finance is selected in departments 
                     if (this.DepartmentBox.SelectedIndex == 0)
                     {
                         Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("Dreges@reald.com" + ";" + "Ltorgeson@reald.com");
                     }
 
-
-                    // Category
-                    // If MASS500 is selected in category 
-                    if (this.CategoryBox.SelectedIndex == 9)
-                    {
-                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("keithshannep@gmail.com");
-
-                        oMsg.HTMLBody =
-                        "<Strong> @Category=</strong>" + this.CategoryBox.Text +
+                    //Body of the email             
+                    oMsg.HTMLBody =
+                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
                         "<br />" +
-                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
+                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
                         "<br />" +
-                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
+                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
                         "<br />" +
                         "<br />" +
                         "<Strong> Neme:</strong>" + this.NameBox.Text +
@@ -156,7 +136,89 @@ namespace RealD_Helpdesk
                         "<br />" +
                         "<Strong> Location:</strong>" + this.LocationBox.Text +
                         "<br />" +
-                        "<Strong> @Owner=Arkus </strong>";
+                        "<Strong> Issue:</strong>" + Issuetext.Text +
+                        "<br />" +
+                        "<Strong> Notes:</strong>" + Notestext.Text;
+
+                   
+                    //Send Resalution if Closed is selected 
+                    if (StatusBox.SelectedIndex == 3)
+                    {
+                        oMsg.HTMLBody =
+                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
+                        "<br />" +
+                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
+                        "<br />" +
+                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
+                        "<br />" +
+                        "<p><font color=white>@</font><Strong>Resolution:</strong>" + Restext.Text +
+                        "<br />" +
+                        "<br />" +
+                        "<Strong> Neme:</strong>" + this.NameBox.Text +
+                        "<br />" +
+                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
+                        "<br />" +
+                        "<Strong> Location:</strong>" + this.LocationBox.Text +
+                        "<br />" +
+                        "<Strong> Issue:</strong>" + Issuetext.Text +
+                        "<br />" +
+                        "<Strong> Notes:</strong>" + Notestext.Text;
+                    }
+
+
+
+                    // If Autonomy/MASS500/Filesite is selected in category ARKUS
+                    if (this.CategoryBox.SelectedIndex == 2 | this.CategoryBox.SelectedIndex == 4 | this.CategoryBox.SelectedIndex == 9)
+                    {
+                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("Arkus@reald.com" + ";" + "mweinberg@reald.com" + ";" + "nkameron@reald.com");
+
+                        oMsg.HTMLBody =
+                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
+                        "<br />" +
+                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
+                        "<br />" +
+                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
+                        "<br />" +
+                        "<Strong> @Owner=</strong>Arkus" +
+                        "<br />" +
+                        "<br />" +
+                        "<Strong> Neme:</strong>" + this.NameBox.Text +
+                        "<br />" +
+                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
+                        "<br />" +
+                        "<Strong> Location:</strong>" + this.LocationBox.Text +
+                        "<br />" +
+                        "<Strong> Issue:</strong>" + Issuetext.Text +
+                        "<br />" +
+                        "<Strong> Notes:</strong>" + Notestext.Text;
+                    }
+
+                    // If AD Change/AD Password/Security is selected in category Nick Kameron
+                    if (this.CategoryBox.SelectedIndex == 0 | this.CategoryBox.SelectedIndex == 1 | this.CategoryBox.SelectedIndex == 15)
+                    {
+                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("nkameron@reald.com");
+
+                        oMsg.HTMLBody =
+                        "<Strong> @Category=</strong>" + this.CategoryBox.Text +
+                        "<br />" +
+                        "<Strong> @Priority=</strong>" + this.PriorityBox.Text +
+                        "<br />" +
+                        "<Strong> @Status=</strong>" + this.StatusBox.Text +
+                        "<br />" +
+                        "<Strong> @Owner=</strong>Nick Kameron" +
+                        "<br />" +
+                        "<br />" +
+                        "<Strong> Neme:</strong>" + this.NameBox.Text +
+                        "<br />" +
+                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
+                        "<br />" +
+                        "<Strong> Location:</strong>" + this.LocationBox.Text +
+                        "<br />" +
+                         "<Strong> Issue:</strong>" + Issuetext.Text +
+                        "<br />" +
+                        "<Strong> Notes:</strong>" + Notestext.Text +
+                        "<br />" +
+                        "<Strong> Resolution:</strong>" + Restext.Text;
                     }
 
                     //Resolves all recipients
@@ -182,7 +244,7 @@ namespace RealD_Helpdesk
                 }
             }
         }
-
+        //Drag and drop for attachment box
         private void AttachmentBox_Drop(object sender, DragEventArgs e)
         {
             string[] DropPath = e.Data.GetData(DataFormats.FileDrop, true) as string[];
