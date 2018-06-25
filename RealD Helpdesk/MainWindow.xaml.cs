@@ -53,32 +53,45 @@ namespace RealD_Helpdesk
                 try
                 {
                     //Message to show blank fields
-                    if (NameBox.Text == "")
+
+                    if (StatusBox.SelectedIndex == 3)
+                    {
+                        if (TicketBox.Text == "")
+                            MessageBox.Show("Please enter a TICK: number");
+                        
+                        if (Restext.Text == "")
+                            MessageBox.Show("Please enter a Resolution to close this ticket");
+                        return;
+                    }
+                    else if (NameBox.Text == "")
                     {
                         MessageBox.Show("Please enter Name.");
                         return;
                     }
-                    if (LocationBox.Text == "")
+                    else if (LocationBox.Text == "")
                     {
                         MessageBox.Show("Please select a location.");
                         return;
                     }
 
-                    if (CategoryBox.Text == "")
+                    else if (CategoryBox.Text == "")
                     {
                         MessageBox.Show("Please choose a category.");
                         return;
                     }
-                    if (DepartmentBox.Text == "")
+                    else if (DepartmentBox.Text == "")
                     {
                         MessageBox.Show("Please select a department");
                         return;
                     }
-                    if (Issuetext.Text == "")
+                    else if (Issuetext.Text == "")
                     {
                         MessageBox.Show("Please describe the problem you are having.");
-                        return;                            
-                    } 
+                        return;
+                    }
+                    
+
+
 
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
@@ -198,8 +211,8 @@ namespace RealD_Helpdesk
                         "<br />" +
                         "<Strong> Resolution:</strong>" + Restext.Text;
                     }
-                    
-                    //Send Resalution if Closed is selected 
+
+                    //Send Resolution if Closed is selected 
                     if (StatusBox.SelectedIndex == 3)
                     {
                         oMsg.HTMLBody =
