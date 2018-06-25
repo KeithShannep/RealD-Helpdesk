@@ -111,14 +111,17 @@ namespace RealD_Helpdesk
                     Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
 
                     Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("helpdesk@reald.com");
-
+                    
 
                     //Dpartments CC
                     // If AR Finance is selected in departments 
+                    
                     if (this.DepartmentBox.SelectedIndex == 0)
                     {
-                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("Dreges@reald.com" + ";" + "Ltorgeson@reald.com");
+                        Outlook.Recipient CC1 = (Outlook.Recipient)oRecips.Add("areges@reald.com");
+                        Outlook.Recipient CC2 = (Outlook.Recipient)oRecips.Add("ltorgeson@reald.com");                        
                     }
+
 
                     //Body of the email             
                     oMsg.HTMLBody =
@@ -138,38 +141,14 @@ namespace RealD_Helpdesk
                         "<Strong> Issue:</strong>" + Issuetext.Text +
                         "<br />" +
                         "<Strong> Notes:</strong>" + Notestext.Text;
-
                    
-                    //Send Resalution if Closed is selected 
-                    if (StatusBox.SelectedIndex == 3)
-                    {
-                        oMsg.HTMLBody =
-                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
-                        "<br />" +
-                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
-                        "<br />" +
-                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
-                        "<br />" +
-                        "<p><font color=white>@</font><Strong>Resolution:</strong>" + Restext.Text +
-                        "<br />" +
-                        "<br />" +
-                        "<Strong> Neme:</strong>" + this.NameBox.Text +
-                        "<br />" +
-                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
-                        "<br />" +
-                        "<Strong> Location:</strong>" + this.LocationBox.Text +
-                        "<br />" +
-                        "<Strong> Issue:</strong>" + Issuetext.Text +
-                        "<br />" +
-                        "<Strong> Notes:</strong>" + Notestext.Text;
-                    }
-
-
-
+                    
                     // If Autonomy/MASS500/Filesite is selected in category ARKUS
                     if (this.CategoryBox.SelectedIndex == 2 | this.CategoryBox.SelectedIndex == 4 | this.CategoryBox.SelectedIndex == 9)
                     {
-                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("Arkus@reald.com" + ";" + "mweinberg@reald.com" + ";" + "nkameron@reald.com");
+                        Outlook.Recipient CC3 = (Outlook.Recipient)oRecips.Add("Arkus@reald.com");
+                        Outlook.Recipient CC4 = (Outlook.Recipient)oRecips.Add("mweinberg@reald.com");
+                        Outlook.Recipient CC5 = (Outlook.Recipient)oRecips.Add("nkameron@reald.com");
 
                         oMsg.HTMLBody =
                         "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
@@ -195,7 +174,7 @@ namespace RealD_Helpdesk
                     // If AD Change/AD Password/Security is selected in category Nick Kameron
                     if (this.CategoryBox.SelectedIndex == 0 | this.CategoryBox.SelectedIndex == 1 | this.CategoryBox.SelectedIndex == 15)
                     {
-                        Outlook.Recipient CC = (Outlook.Recipient)oRecips.Add("nkameron@reald.com");
+                        Outlook.Recipient CC6 = (Outlook.Recipient)oRecips.Add("nkameron@reald.com");
 
                         oMsg.HTMLBody =
                         "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
@@ -218,6 +197,30 @@ namespace RealD_Helpdesk
                         "<Strong> Notes:</strong>" + Notestext.Text +
                         "<br />" +
                         "<Strong> Resolution:</strong>" + Restext.Text;
+                    }
+                    
+                    //Send Resalution if Closed is selected 
+                    if (StatusBox.SelectedIndex == 3)
+                    {
+                        oMsg.HTMLBody =
+                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
+                        "<br />" +
+                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
+                        "<br />" +
+                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
+                        "<br />" +
+                        "<p><font color=white>@</font><Strong>Resolution:</strong>" + Restext.Text +
+                        "<br />" +
+                        "<br />" +
+                        "<Strong> Neme:</strong>" + this.NameBox.Text +
+                        "<br />" +
+                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
+                        "<br />" +
+                        "<Strong> Location:</strong>" + this.LocationBox.Text +
+                        "<br />" +
+                        "<Strong> Issue:</strong>" + Issuetext.Text +
+                        "<br />" +
+                        "<Strong> Notes:</strong>" + Notestext.Text;
                     }
 
                     //Resolves all recipients
