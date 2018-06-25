@@ -25,8 +25,8 @@ namespace RealD_Helpdesk
     public partial class MainWindow : Window
     {
         //Hold Attachment paths
-        List<string> myAttachmentPaths;
-                
+        List<string> myAttachmentPaths;  
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -40,11 +40,7 @@ namespace RealD_Helpdesk
                 //Get Text from Rich textbox
                 TextRange Issuetext = new TextRange(IssueBox.Document.ContentStart, IssueBox.Document.ContentEnd);
 
-                string allIssText = Issuetext.Text;
-
-                TextRange Restext = new TextRange(ResolutionBox.Document.ContentStart, ResolutionBox.Document.ContentEnd);
-
-                string allResText = Restext.Text;
+                string allIssText = Issuetext.Text;                
 
                 TextRange Notestext = new TextRange(TicketNotesBox.Document.ContentStart, TicketNotesBox.Document.ContentEnd);
 
@@ -54,16 +50,7 @@ namespace RealD_Helpdesk
                 {
                     //Message to show blank fields
 
-                    if (StatusBox.SelectedIndex == 3)
-                    {
-                        if (TicketBox.Text == "")
-                            MessageBox.Show("Please enter a TICK: number");
-                        
-                        if (Restext.Text == "")
-                            MessageBox.Show("Please enter a Resolution to close this ticket");
-                        return;
-                    }
-                    else if (NameBox.Text == "")
+                    if (NameBox.Text == "")
                     {
                         MessageBox.Show("Please enter Name.");
                         return;
@@ -89,9 +76,6 @@ namespace RealD_Helpdesk
                         MessageBox.Show("Please describe the problem you are having.");
                         return;
                     }
-                    
-
-
 
                     // Create the Outlook application.
                     Outlook.Application oApp = new Outlook.Application();
@@ -109,17 +93,9 @@ namespace RealD_Helpdesk
                         }                       
                     }
 
-                    //Subject line Will check for ticket number               
-                    if (TicketBox.Text == "")
-                    {
-                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.CategoryBox.Text + "-" + this.PriorityBox.Text;
-                    }
-                    else
-                    {
-                        oMsg.Subject = " " + this.LocationBox.Text + "-" + this.CategoryBox.Text + "-" + this.PriorityBox.Text + "-" + "[TICK:" + this.TicketBox.Text + "]";
-                    }
-
-
+                    //Subject line            
+                    oMsg.Subject = " " + this.LocationBox.Text + "-" + this.CategoryBox.Text + "-" + this.PriorityBox.Text;
+                  
                     //Add the recipient
                     Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
 
@@ -146,9 +122,7 @@ namespace RealD_Helpdesk
                         "<br />" +
                         "<br />" +
                         "<Strong> Neme:</strong>" + this.NameBox.Text +
-                        "<br />" +
-                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
-                        "<br />" +
+                        "<br />" +                       
                         "<Strong> Location:</strong>" + this.LocationBox.Text +
                         "<br />" +
                         "<Strong> Issue:</strong>" + Issuetext.Text +
@@ -174,9 +148,7 @@ namespace RealD_Helpdesk
                         "<br />" +
                         "<br />" +
                         "<Strong> Neme:</strong>" + this.NameBox.Text +
-                        "<br />" +
-                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
-                        "<br />" +
+                        "<br />" +                       
                         "<Strong> Location:</strong>" + this.LocationBox.Text +
                         "<br />" +
                         "<Strong> Issue:</strong>" + Issuetext.Text +
@@ -201,37 +173,9 @@ namespace RealD_Helpdesk
                         "<br />" +
                         "<Strong> Neme:</strong>" + this.NameBox.Text +
                         "<br />" +
-                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
-                        "<br />" +
                         "<Strong> Location:</strong>" + this.LocationBox.Text +
                         "<br />" +
                          "<Strong> Issue:</strong>" + Issuetext.Text +
-                        "<br />" +
-                        "<Strong> Notes:</strong>" + Notestext.Text +
-                        "<br />" +
-                        "<Strong> Resolution:</strong>" + Restext.Text;
-                    }
-
-                    //Send Resolution if Closed is selected 
-                    if (StatusBox.SelectedIndex == 3)
-                    {
-                        oMsg.HTMLBody =
-                        "<p><font color=white>@</font><Strong>Category=</strong>" + this.CategoryBox.Text +
-                        "<br />" +
-                        "<p><font color=white>@</font><Strong>Priority=</strong>" + this.PriorityBox.Text +
-                        "<br />" +
-                        "<p><font color=white>@</font><Strong>Status=</strong>" + this.StatusBox.Text +
-                        "<br />" +
-                        "<p><font color=white>@</font><Strong>Resolution:</strong>" + Restext.Text +
-                        "<br />" +
-                        "<br />" +
-                        "<Strong> Neme:</strong>" + this.NameBox.Text +
-                        "<br />" +
-                        "<Strong> Phone:</strong>" + this.PhoneBox.Text +
-                        "<br />" +
-                        "<Strong> Location:</strong>" + this.LocationBox.Text +
-                        "<br />" +
-                        "<Strong> Issue:</strong>" + Issuetext.Text +
                         "<br />" +
                         "<Strong> Notes:</strong>" + Notestext.Text;
                     }
@@ -274,6 +218,30 @@ namespace RealD_Helpdesk
                     AttachmentBox.Items.Add(listboxitem);
                 }               
             }
+        }
+        
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var ETW = new Existing_ticket();            
+            ETW.Show();
+            Close();            
+        }
+
+        private void StatusBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            //Send Resolution if Closed is selected 
+            if (StatusBox.SelectedIndex == 3)
+            {
+                var ETW = new Existing_ticket();
+
+                ETW.Show();
+                Close();
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

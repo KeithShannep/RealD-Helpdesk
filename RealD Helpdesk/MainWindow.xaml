@@ -5,35 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealD_Helpdesk"
         mc:Ignorable="d"
-        Title="RealD Helpdesk" Height="745" Width="569" Icon="Pics/Help.ico" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-    <Grid Margin="0,0,0,-3" Background="#FFB9B1B1" RenderTransformOrigin="0.463,0.46" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Height="718" VerticalAlignment="Top" HorizontalAlignment="Left" Width="561">
+        Title="RealD Helpdesk" Height="745" Width="574" Icon="Pics/Help.ico" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    <Grid Margin="0,0,-8,-3" Background="#FFB9B1B1" RenderTransformOrigin="0.463,0.46" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Height="718" VerticalAlignment="Top" HorizontalAlignment="Left" Width="569">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="" Margin="142,615,0,0" VerticalAlignment="Top" Click="Button_Click" Height="80" ForceCursor="True" TabIndex="13" HorizontalAlignment="Left" Width="263" ToolTip="Submit to helpdesk">
+        <Button Content="Submit" Margin="10,627,0,0" VerticalAlignment="Top" Click="Button_Click" Height="53" ForceCursor="True" TabIndex="13" HorizontalAlignment="Left" Width="175" ToolTip="Submit to helpdesk" FontSize="18" BorderThickness="8,1,1,1" BorderBrush="{x:Null}" Foreground="Black">
             <Button.Background>
-                <ImageBrush ImageSource="Pics/Submit-Button-Transparent-PNG.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Pics/Button BG.png" Stretch="UniformToFill"/>
             </Button.Background>
-            <Button.Foreground>
-                <ImageBrush Stretch="UniformToFill" ImageSource="Pics/Submit-Button-Transparent-PNG.png"/>
-            </Button.Foreground>
         </Button>
-        <Label Content="Name:" Margin="10,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
-        <Label Content="Location:" Margin="150,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="145,264,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <Label Content="Category:" HorizontalAlignment="Left" Margin="145,203,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <Label Content="Issue:" Margin="270,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
-        <Label Content="Resolution:" HorizontalAlignment="Left" Margin="270,464,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="NameBox" Margin="10,116,0,0" TextWrapping="Wrap" SpellCheck.IsEnabled="True" TabIndex="1" ToolTip="Customer Name" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top"/>
-        <RichTextBox x:Name="IssueBox" Margin="270,116,0,0" SpellCheck.IsEnabled="True" TabIndex="9" ToolTip="What is the issue, be as discriptive as possible" HorizontalAlignment="Left" Width="283" Height="197" VerticalAlignment="Top">
+        <Label Content="Name:" Margin="26,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
+        <Label Content="Location:" Margin="168,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="168,210,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+        <Label Content="Category:" HorizontalAlignment="Left" Margin="26,210,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+        <Label Content="Issue:" Margin="291,269,0,0" FontWeight="Bold" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameBox" Margin="18,116,0,0" TextWrapping="Wrap" SpellCheck.IsEnabled="True" TabIndex="1" ToolTip="Customer Name" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top"/>
+        <RichTextBox x:Name="IssueBox" Margin="291,300,0,0" SpellCheck.IsEnabled="True" TabIndex="9" ToolTip="What is the issue, be as discriptive as possible" HorizontalAlignment="Left" Width="260" Height="300" VerticalAlignment="Top">
             <FlowDocument/>
         </RichTextBox>
-        <Label Content="Priority:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <Label Content="Ticket number:" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <Label Content="Phone:" Margin="10,149,449,543" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="PhoneBox" Margin="10,175,0,0" TextWrapping="Wrap" SpellCheck.IsEnabled="True" TabIndex="3" ToolTip="Phone Ext" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top"/>
-        <Label Content="Department:" Margin="145,144,314,548" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="LocationBox" Margin="142,116,0,0" TabIndex="2" ToolTip="Office Location" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top">
+        <Label Content="Priority:" HorizontalAlignment="Left" Margin="26,146,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+        <Label Content="Department:" Margin="168,144,299,548" FontWeight="Bold" HorizontalContentAlignment="Right" Width="102"/>
+        <ComboBox x:Name="LocationBox" Margin="160,116,0,0" TabIndex="2" ToolTip="Office Location" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top">
             <ComboBoxItem Content="Boulder"/>
             <ComboBoxItem Content="Bevery Hills"/>
             <ComboBoxItem Content="Beijing"/>
@@ -46,21 +39,17 @@
             <ComboBoxItem Content="Taiwan"/>
             <ComboBoxItem Content="Tokyo"/>
         </ComboBox>
-        <ComboBox x:Name="PriorityBox" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="5" SelectedIndex="0">
+        <ComboBox x:Name="PriorityBox" HorizontalAlignment="Left" Margin="18,175,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="5" SelectedIndex="0" HorizontalContentAlignment="Center">
             <ComboBoxItem Content="Low"/>
             <ComboBoxItem Content="Medium"/>
         </ComboBox>
-        <TextBox x:Name="TicketBox" HorizontalAlignment="Left" Height="25" Margin="10,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="7" ToolTip="Use if existing ticket"/>
-        <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="142,288,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="8" SelectedIndex="0">
+        <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="160,236,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="8" SelectedIndex="0" LostFocus="StatusBox_LostFocus" HorizontalContentAlignment="Center">
             <ComboBoxItem Content="New"/>
             <ComboBoxItem Content="Opened"/>
             <ComboBoxItem Content="Reopened"/>
             <ComboBoxItem Content="Closed"/>
         </ComboBox>
-        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="93" Margin="268,495,0,0" VerticalAlignment="Top" Width="283" SpellCheck.IsEnabled="True" TabIndex="12" ToolTip="Used if ticket is closed ">
-            <FlowDocument/>
-        </RichTextBox>
-        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="142,234,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="6" ToolTip="Category of issue">
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="18,236,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="6" ToolTip="Category of issue" HorizontalContentAlignment="Center">
             <ComboBoxItem Content="Account::AD Change"/>
             <ComboBoxItem Content="Account::Password reset"/>
             <ComboBoxItem Content="Autonomy"/>
@@ -80,7 +69,7 @@
             <ComboBoxItem Content="VPN"/>
             <ComboBoxItem Content="Other"/>
         </ComboBox>
-        <ComboBox x:Name="DepartmentBox" Margin="142,175,0,0" TabIndex="4" ToolTip="" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top">
+        <ComboBox x:Name="DepartmentBox" Margin="160,175,0,0" TabIndex="4" ToolTip="" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top" HorizontalContentAlignment="Center">
             <ComboBoxItem Content="AR Finance "/>
             <ComboBoxItem Content="AP Finance"/>
             <ComboBoxItem Content="Human Resources"/>
@@ -88,12 +77,24 @@
             <ComboBoxItem Content="Manufacturing"/>
         </ComboBox>
         <Image Margin="80,10,0,0" Source="Pics/RealD_logo.png" HorizontalAlignment="Left" Width="385" Height="75" VerticalAlignment="Top"/>
-        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="110" Margin="268,349,0,0" VerticalAlignment="Top" Width="283" Drop="AttachmentBox_Drop" AllowDrop="True" TabIndex="11" ToolTip="Drag and drop attachments"/>
-        <Label Content="Attachments:" HorizontalAlignment="Left" Margin="270,318,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <Label Content="Ticket Notes:" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <RichTextBox x:Name="TicketNotesBox" Height="239" Margin="10,349,0,0" VerticalAlignment="Top" SpellCheck.IsEnabled="True" TabIndex="10" HorizontalAlignment="Left" Width="242" ToolTip="Notes for work done">
-            <FlowDocument/>
+        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="145" Margin="291,116,0,0" VerticalAlignment="Top" Width="260" Drop="AttachmentBox_Drop" AllowDrop="True" TabIndex="11" ToolTip="Drag and drop attachments"/>
+        <Label Content="Attachments:" HorizontalAlignment="Left" Margin="268,90,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+        <Label Content="Ticket Notes:" HorizontalAlignment="Left" Margin="80,266,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
+        <RichTextBox x:Name="TicketNotesBox" Height="303" Margin="10,297,0,0" VerticalAlignment="Top" SpellCheck.IsEnabled="True" TabIndex="10" HorizontalAlignment="Left" Width="260" ToolTip="Notes for work done">
+            <FlowDocument>
+                <Paragraph/>
+            </FlowDocument>
         </RichTextBox>
+        <Button Content="Existing ticket" HorizontalAlignment="Left" Margin="189,627,0,0" VerticalAlignment="Top" Width="181" Height="53" Click="Button_Click_2" FontSize="18" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Pics/Button BG.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="376,627,0,0" VerticalAlignment="Top" Width="175" Height="53" Click="Button_Click_1" IsCancel="True" FontSize="18" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Pics/Button BG.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
