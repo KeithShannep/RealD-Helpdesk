@@ -10,7 +10,7 @@
         <Label Content="Ticket number:" HorizontalAlignment="Left" Margin="26,90,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right" Height="26"/>
         <TextBox x:Name="TicketBox" HorizontalAlignment="Left" Height="25" Margin="18,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" SpellCheck.IsEnabled="True" TabIndex="7" ToolTip="Ticket number XXXX" HorizontalContentAlignment="Center"/>
         <Label Content="Status:" HorizontalAlignment="Left" Margin="26,141,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right" Height="26"/>
-        <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="18,172,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="8" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="18,172,0,0" VerticalAlignment="Top" Width="110" Height="25" TabIndex="8" SelectedIndex="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <ComboBoxItem Content="Opened"/>
             <ComboBoxItem Content="Reopened"/>
             <ComboBoxItem Content="Closed"/>
