@@ -58,7 +58,7 @@ namespace RealD_Helpdesk
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
-            {
+            {                
                 //Get Text from Rich textbox
                 TextRange Restext = new TextRange(ResolutionBox.Document.ContentStart, ResolutionBox.Document.ContentEnd);
                 string allResText = Restext.Text;
