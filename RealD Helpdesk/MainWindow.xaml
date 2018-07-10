@@ -21,7 +21,7 @@
         <Label Content="Category:" HorizontalAlignment="Left" Margin="26,210,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
         <Label Content="Issue:" Margin="291,269,0,0" FontWeight="Bold" HorizontalAlignment="Left" Width="102" Height="26" VerticalAlignment="Top"/>
         <TextBox x:Name="NameBox" Margin="18,116,0,0" TextWrapping="Wrap" SpellCheck.IsEnabled="True" TabIndex="1" ToolTip="Customer Name" HorizontalAlignment="Left" Width="110" Height="25" VerticalAlignment="Top"/>
-        <RichTextBox x:Name="IssueBox" Margin="291,300,0,0" SpellCheck.IsEnabled="True" TabIndex="9" ToolTip="What is the issue, be as discriptive as possible" HorizontalAlignment="Left" Width="260" Height="300" VerticalAlignment="Top">
+        <RichTextBox x:Name="IssueBox" Margin="291,297,0,0" SpellCheck.IsEnabled="True" TabIndex="9" ToolTip="What is the issue, be as discriptive as possible" HorizontalAlignment="Left" Width="260" Height="303" VerticalAlignment="Top">
             <FlowDocument/>
         </RichTextBox>
         <Label Content="Priority:" HorizontalAlignment="Left" Margin="26,146,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
@@ -77,7 +77,7 @@
             <ComboBoxItem Content="Manufacturing"/>
         </ComboBox>
         <Image Margin="80,10,0,0" Source="Pics/RealD_logo.png" HorizontalAlignment="Left" Width="385" Height="75" VerticalAlignment="Top"/>
-        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="145" Margin="291,116,0,0" VerticalAlignment="Top" Width="260" Drop="AttachmentBox_Drop" AllowDrop="True" TabIndex="11" ToolTip="Drag and drop attachments"/>
+        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="145" Margin="291,116,0,0" VerticalAlignment="Top" Width="260" Drop="AttachmentBox_Drop" AllowDrop="True" TabIndex="11" ToolTip="Drag and drop attachments" KeyDown="AttachmentBox_KeyDown"/>
         <Label Content="Attachments:" HorizontalAlignment="Left" Margin="268,90,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
         <Label Content="Ticket Notes:" HorizontalAlignment="Left" Margin="80,266,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
         <RichTextBox x:Name="TicketNotesBox" Height="303" Margin="10,297,0,0" VerticalAlignment="Top" SpellCheck.IsEnabled="True" TabIndex="10" HorizontalAlignment="Left" Width="260" ToolTip="Notes for work done">

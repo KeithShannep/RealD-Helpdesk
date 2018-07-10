@@ -22,11 +22,11 @@
             </FlowDocument>
         </RichTextBox>
         <Label Content="Resolution:" HorizontalAlignment="Center" Margin="291,269,168,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="300" Margin="291,300,0,0" VerticalAlignment="Top" Width="260" SpellCheck.IsEnabled="True" TabIndex="12" ToolTip="Used if ticket is closed ">
+        <RichTextBox x:Name="ResolutionBox" HorizontalAlignment="Left" Height="303" Margin="291,297,0,0" VerticalAlignment="Top" Width="260" SpellCheck.IsEnabled="True" TabIndex="12" ToolTip="Used if ticket is closed ">
             <FlowDocument/>
         </RichTextBox>
         <Label Content="Attachments:" HorizontalAlignment="Left" Margin="268,90,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="145" Margin="291,116,0,0" VerticalAlignment="Top" Width="260" Drop="AttachmentBox_Drop" AllowDrop="True" TabIndex="11" ToolTip="Drag and drop attachments" VerticalContentAlignment="Top"/>
+        <ListBox x:Name="AttachmentBox" HorizontalAlignment="Left" Height="145" Margin="291,116,0,0" VerticalAlignment="Top" Width="260" Drop="AttachmentBox_Drop" AllowDrop="True" TabIndex="11" ToolTip="Drag and drop attachments" VerticalContentAlignment="Top" KeyDown="AttachmentBox_KeyDown"/>
         <Button Content="Submit" Margin="10,627,0,0" VerticalAlignment="Top" Height="53" ForceCursor="True" TabIndex="13" HorizontalAlignment="Left" Width="175" ToolTip="Submit to helpdesk" Click="Button_Click_1" Foreground="Black" FontSize="18" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Pics/Button BG.png" Stretch="UniformToFill"/>

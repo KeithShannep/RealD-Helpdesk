@@ -243,10 +243,23 @@ namespace RealD_Helpdesk
         {
             Close();
         }
+
+        //Delete item from Attachment listbox
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                AttachmentBox.Items.Add(new Random().Next().ToString());
+            }
+        }
+
+        //Delete item from Attachment listbox
+        private void AttachmentBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back | e.Key == Key.Delete)
+            {
+                AttachmentBox.Items.RemoveAt(AttachmentBox.SelectedIndex);
+            }
+        }
     }
 }
-    
-
-
-
-
