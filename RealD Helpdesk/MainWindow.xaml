@@ -58,6 +58,7 @@
             <ComboBoxItem Content="Hardware"/>
             <ComboBoxItem Content="IT PRK"/>
             <ComboBoxItem Content="IT URF"/>
+            <ComboBoxItem Content="Salesforce"/>
             <ComboBoxItem Content="Software"/>
             <ComboBoxItem Content="MAS500"/>
             <ComboBoxItem Content="Network"/>
