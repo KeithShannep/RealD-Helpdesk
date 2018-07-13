@@ -25,10 +25,11 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\rdfsco\common\RealD IT Helpdesk\New Help desk\</UpdateUrl>
+    <TargetCulture>en</TargetCulture>
     <ProductName>RealD Helpdesk</ProductName>
-    <PublisherName>Keith Shannep</PublisherName>
+    <PublisherName>RealD Helpdesk</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
